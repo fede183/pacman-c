@@ -1,3 +1,8 @@
 *.o
 *.out
-main
+classes/*.o
+classes/*.out
+src/*.o
+src/*.out
+build/
+CMakeUserPresets.json
