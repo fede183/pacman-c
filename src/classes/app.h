@@ -9,6 +9,7 @@ typedef struct {
 	SDL_Window* window;
 	SDL_Renderer* game_over_renderer;
 	SDL_Window* game_over_window;
+	TextureToLoad* pacman;
 	TextBox* score;
 	TextBox* game_over_message;
 	Mix_Music* music;

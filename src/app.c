@@ -7,11 +7,14 @@
 #include <callback.h>
 
 #include "text_box.c"
+#include "texture_to_load.c"
 #include "rectagle.c"
 #include "classes/app.h"
 #include "classes/config.h"
+#include "game.c"
 
 App* app;
+Game* game;
 bool quit;
 
 SDL_Color SDLColors[8] = {BLUE_COLOR, VIOLET_COLOR, RED_COLOR, GREEN_COLOR, YELLOW_COLOR, LIGHT_BLUE_COLOR, ORANGE_COLOR, MEDIUM_BLUE_COLOR};
@@ -83,6 +86,10 @@ void init_SDL(void)
 
 	app->score = init_text(DISPLAY_SCORE_WIGTH, DISPLAY_SCORE_HEIGTH, DISPLAY_SCORE_X, DISPLAY_SCORE_Y);
 
+	app->pacman = init_texture(10.0, 10.0, 10.0, 10.0);
+
+	game = create_game();
+
 	quit = false;
 }
 
@@ -114,6 +121,8 @@ void cleanup() {
     		Mix_CloseAudio();
 	}
 
+	clean_texture(app->pacman);
+	clean_game(game);
 	free(app);
 	TTF_Quit();
 	SDL_Quit();
@@ -129,6 +138,7 @@ void prepare_scene(void)
 
 void present_scene(void)
 {
+	show_texture(app->pacman, app->renderer, "../images/pacman_openmounth.bmp");
 	SDL_RenderPresent(app->renderer);
 }
 
