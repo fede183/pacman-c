@@ -5,4 +5,5 @@ classes/*.out
 src/*.o
 src/*.out
 build/
+vcpkg_installed/
 CMakeUserPresets.json

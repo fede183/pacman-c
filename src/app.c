@@ -4,7 +4,6 @@
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_ttf.h>
 #include <stdbool.h>
-#include <callback.h>
 
 #include "text_box.c"
 #include "texture_to_load.c"
